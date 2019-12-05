@@ -1,0 +1,8 @@
+<h2>The Eternal Palace</h2>
+<ol>
+  <li *ngFor="let boss of bosses$ | async">
+    <a routerLink="/boss/{{ boss.id }}">
+      {{ boss.name }}
+    </a>
+  </li>
+</ol>
