@@ -16,7 +16,11 @@ export class ItemService {
   getItemsForBoss(bossId: string) {
     return this.boss$.pipe(
       switchMap(bossId =>
-        this.db.collection("items", ref => ref.limit(10)).valueChanges()
+        this.db
+          .collection("items", ref =>
+            ref.where("droppedBy", "==", bossId).limit(10)
+          )
+          .valueChanges()
       )
     );
   }

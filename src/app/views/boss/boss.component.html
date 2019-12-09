@@ -1,2 +1,29 @@
-<p>boss works!</p>
-{{ bossid }}
+<p>Items</p>
+<table>
+  <thead>
+    <th>Item Name</th>
+    <th>Item Type</th>
+    <th>Item Subtype</th>
+    <th>Inventory Type</th>
+    <th>Sims</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of joined$ | async as list">
+      <td>{{ item.name }}</td>
+      <td>
+        {{ item.itemClass | itemClass }}
+      </td>
+      <td>
+        {{ item.itemSubClass }}
+      </td>
+      <td>
+        {{ item.inventoryType | inventoryType }}
+      </td>
+      <td>
+        <span *ngFor="let sim of item.sims">
+          {{ sim.player_name }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

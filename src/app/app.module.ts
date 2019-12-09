@@ -10,11 +10,20 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { RosterComponent } from "./views/roster/roster.component";
 import { ItemService } from "./services/item.service";
 import { RosterService } from "./services/roster.service";
-import { EternalPalaceComponent } from './views/eternal-palace/eternal-palace.component';
-import { BossComponent } from './views/boss/boss.component';
+import { EternalPalaceComponent } from "./views/eternal-palace/eternal-palace.component";
+import { BossComponent } from "./views/boss/boss.component";
+import { ItemClassPipe } from "./pipes/item-class.pipe";
+import { InventoryTypePipe } from "./pipes/inventory-type.pipe";
 
 @NgModule({
-  declarations: [AppComponent, RosterComponent, EternalPalaceComponent, BossComponent],
+  declarations: [
+    AppComponent,
+    RosterComponent,
+    EternalPalaceComponent,
+    BossComponent,
+    ItemClassPipe,
+    InventoryTypePipe
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
