@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { RosterService } from "src/app/services/roster.service";
 import { Observable } from "rxjs";
 import { MemberDocument } from "src/models/documents";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-roster",
@@ -18,6 +18,7 @@ export class RosterComponent implements OnInit {
       .collection<MemberDocument>("members", ref =>
         ref.where("guild", "==", "Elicit").where("rank", "in", [0, 1, 3, 5])
       )
-      .valueChanges();
+      .valueChanges()
+      .pipe(map(memberList => memberList.sort((a, b) => a.rank - b.rank)));
   }
 }

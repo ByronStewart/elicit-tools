@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RosterService } from './roster.service';
+import { BossDetailsService } from './boss-details.service';
 
-describe('RosterService', () => {
+describe('BossDetailsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: RosterService = TestBed.get(RosterService);
+    const service: BossDetailsService = TestBed.get(BossDetailsService);
     expect(service).toBeTruthy();
   });
 });

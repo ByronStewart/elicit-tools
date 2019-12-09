@@ -12,7 +12,9 @@ export class InventoryTypePipe implements PipeTransform {
         return "head";
       case 3:
         return "shoulder";
-      case 5 || 20:
+      case 5:
+        return "chest";
+      case 20:
         return "chest";
       case 16:
         return "back";

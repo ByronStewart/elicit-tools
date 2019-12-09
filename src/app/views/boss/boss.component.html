@@ -1,4 +1,7 @@
-<h2>Items</h2>
+<h2>
+  {{ bossName$ | async }}
+</h2>
+
 <table class="table">
   <thead>
     <th>Item Name</th>
@@ -20,7 +23,7 @@
         {{ item.inventoryType | inventoryType }}
       </td>
       <td>
-        <span *ngFor="let sim of item.sims">
+        <span class="label" *ngFor="let sim of item.sims">
           {{ sim.player_name }}
         </span>
       </td>

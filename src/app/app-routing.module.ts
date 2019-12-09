@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { AppComponent } from "./app.component";
 import { RosterComponent } from "./views/roster/roster.component";
 import { EternalPalaceComponent } from "./views/eternal-palace/eternal-palace.component";
 import { BossComponent } from "./views/boss/boss.component";

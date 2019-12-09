@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { BossDocument } from "src/models/documents";
+import { BossDetailsService } from "src/app/services/boss-details.service";
 
 @Component({
   selector: "app-eternal-palace",
@@ -10,11 +11,9 @@ import { BossDocument } from "src/models/documents";
 })
 export class EternalPalaceComponent implements OnInit {
   bosses$: Observable<BossDocument[]>;
-  constructor(private db: AngularFirestore) {}
+  constructor(private db: AngularFirestore, private bds: BossDetailsService) {}
 
   ngOnInit() {
-    this.bosses$ = this.db
-      .collection<BossDocument>("bosses", ref => ref.orderBy("encounterOrder"))
-      .valueChanges();
+    this.bosses$ = this.bds.bossList$;
   }
 }

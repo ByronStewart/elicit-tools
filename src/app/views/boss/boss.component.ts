@@ -8,6 +8,7 @@ import {
   SimDocument,
   ItemsJoinedSims
 } from "src/models/documents";
+import { BossDetailsService } from "src/app/services/boss-details.service";
 
 @Component({
   selector: "app-boss",
@@ -16,8 +17,18 @@ import {
 })
 export class BossComponent implements OnInit {
   joined$: Observable<ItemsJoinedSims[]>;
-  constructor(private route: ActivatedRoute, private db: AngularFirestore) {}
+  bossName$: Observable<string>;
+  constructor(
+    private route: ActivatedRoute,
+    private db: AngularFirestore,
+    private bds: BossDetailsService
+  ) {}
   ngOnInit() {
+    this.bossName$ = this.route.paramMap.pipe(
+      map(params => params.get("id")),
+      switchMap(id => this.bds.getBossNameById(id))
+    );
+
     this.joined$ = this.route.paramMap.pipe(
       map(params => params.get("id")),
       switchMap(id =>
