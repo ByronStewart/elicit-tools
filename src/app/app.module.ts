@@ -16,6 +16,7 @@ import { PlayerComponent } from "./views/player/player.component";
 import { MemberRankPipe } from "./pipes/member-rank.pipe";
 import { ClarityModule } from "@clr/angular";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ItemSubClassPipe,
     PlayerClassPipe,
     PlayerComponent,
-    MemberRankPipe
+    MemberRankPipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

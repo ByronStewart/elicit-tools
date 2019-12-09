@@ -1,16 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { EternalPalaceComponent } from './eternal-palace.component';
+import { EternalPalaceComponent } from "./eternal-palace.component";
+import { AngularFirestore } from "@angular/fire/firestore";
+import { ActivatedRoute } from "@angular/router";
 
-describe('EternalPalaceComponent', () => {
+describe("EternalPalaceComponent", () => {
   let component: EternalPalaceComponent;
   let fixture: ComponentFixture<EternalPalaceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EternalPalaceComponent ]
-    })
-    .compileComponents();
+      declarations: [EternalPalaceComponent],
+      providers: [AngularFirestore, ActivatedRoute]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('EternalPalaceComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,20 +1,17 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { TestBed, async } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { AppComponent } from "./app.component";
+import { ClarityModule } from "@clr/angular";
 
-describe('AppComponent', () => {
+describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule, ClarityModule],
+      declarations: [AppComponent]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it("should create the app", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
@@ -23,13 +20,12 @@ describe('AppComponent', () => {
   it(`should have as title 'elicit-tools-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('elicit-tools-frontend');
+    expect(app.title).toEqual("elicit-tools-frontend");
   });
 
-  it('should render title', () => {
+  it("should contain the title", () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('elicit-tools-frontend app is running!');
+    const app = fixture.debugElement.componentInstance;
+    expect(app.content).toContain("Elicit Raid Tools");
   });
 });
