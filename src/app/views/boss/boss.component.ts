@@ -9,6 +9,7 @@ import {
   ItemsJoinedSims
 } from "src/models/documents";
 import { BossDetailsService } from "src/app/services/boss-details.service";
+import { PlayerSimsService } from "src/app/services/player-sims.service";
 
 @Component({
   selector: "app-boss",
@@ -21,7 +22,8 @@ export class BossComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private db: AngularFirestore,
-    private bds: BossDetailsService
+    private bds: BossDetailsService,
+    public pss: PlayerSimsService
   ) {}
   ngOnInit() {
     this.bossName$ = this.route.paramMap.pipe(

@@ -8,7 +8,7 @@
     <th>Item Type</th>
     <th>Item Subtype</th>
     <th>Inventory Type</th>
-    <th>Sims</th>
+    <th>DPS Upgrade</th>
   </thead>
   <tbody>
     <tr *ngFor="let item of joined$ | async as list">
@@ -23,9 +23,16 @@
         {{ item.inventoryType | inventoryType }}
       </td>
       <td>
-        <span class="label" *ngFor="let sim of item.sims">
+        <a
+          class="label clickable"
+          routerLink="/player/{{ sim.player_name }}"
+          *ngFor="let sim of item.sims"
+        >
           {{ sim.player_name }}
-        </span>
+          <span class="badge">{{
+            pss.getSimDelta(sim) | number: "1.0-0"
+          }}</span>
+        </a>
       </td>
     </tr>
   </tbody>

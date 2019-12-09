@@ -1,0 +1,13 @@
+$hero-background: #17242b;
+
+.hero {
+  padding: 3rem 1rem;
+  background: $hero-background;
+  margin: -1rem -1rem 0 -1rem;
+}
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-shadow: 0.2rem 1px 1px black;
+}
