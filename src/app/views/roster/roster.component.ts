@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RosterService } from "src/app/services/roster.service";
 import { Observable } from "rxjs";
 import { MemberDocument } from "src/models/documents";
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Component({
   selector: "app-roster",
@@ -10,21 +11,13 @@ import { MemberDocument } from "src/models/documents";
 })
 export class RosterComponent implements OnInit {
   roster$: Observable<MemberDocument[]>;
-  currRank$: Observable<number>;
-  currLimit$: Observable<number>;
-  constructor(public rs: RosterService) {}
+  constructor(private db: AngularFirestore) {}
 
   ngOnInit() {
-    this.roster$ = this.rs.getRoster();
-    this.currRank$ = this.rs.rank$;
-    this.currLimit$ = this.rs.limit$;
-  }
-
-  changeLimit(x: string) {
-    this.rs.limit$.next(+x);
-  }
-
-  changeRank(x: string) {
-    this.rs.rank$.next(+x);
+    this.roster$ = this.db
+      .collection<MemberDocument>("members", ref =>
+        ref.where("guild", "==", "Elicit").where("rank", "in", [0, 1, 3, 5])
+      )
+      .valueChanges();
   }
 }

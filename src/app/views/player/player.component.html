@@ -1,0 +1,23 @@
+<h2>
+  {{ (player$ | async)?.name }}
+</h2>
+<div>
+  <p>
+    {{ (player$ | async)?.class | playerClass }}
+  </p>
+  <p *ngIf="(player$ | async)?.spec">
+    <span> {{ (player$ | async)?.spec.role }} </span>
+    <span> {{ (player$ | async)?.spec.name }}</span>
+  </p>
+  <p>
+    {{ (player$ | async)?.rank | memberRank }}
+  </p>
+</div>
+<h3>
+  Sim Reports:
+</h3>
+<ul>
+  <li *ngFor="let report of (player$ | async)?.simReportsUrls">
+    <a href="{{ report }}">{{ report }}</a>
+  </li>
+</ul>

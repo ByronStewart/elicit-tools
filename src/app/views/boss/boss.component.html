@@ -14,7 +14,7 @@
         {{ item.itemClass | itemClass }}
       </td>
       <td>
-        {{ item.itemSubClass }}
+        {{ item.itemSubClass | itemSubClass: item.itemClass }}
       </td>
       <td>
         {{ item.inventoryType | inventoryType }}

@@ -4,6 +4,7 @@ import { AppComponent } from "./app.component";
 import { RosterComponent } from "./views/roster/roster.component";
 import { EternalPalaceComponent } from "./views/eternal-palace/eternal-palace.component";
 import { BossComponent } from "./views/boss/boss.component";
+import { PlayerComponent } from "./views/player/player.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: "boss/:id",
     component: BossComponent
+  },
+  {
+    path: "player/:name",
+    component: PlayerComponent
   }
 ];
 

@@ -1,27 +1,7 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import {
-  from,
-  Subscription,
-  Observable,
-  zip,
-  of,
-  combineLatest,
-  concat
-} from "rxjs";
-import { ItemService } from "src/app/services/item.service";
-import {
-  map,
-  switchMap,
-  tap,
-  concatAll,
-  mergeAll,
-  toArray,
-  mergeMap,
-  switchAll,
-  combineAll,
-  concatMap
-} from "rxjs/operators";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Observable, of, combineLatest } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
 import { AngularFirestore } from "@angular/fire/firestore";
 import {
   ItemDocument,

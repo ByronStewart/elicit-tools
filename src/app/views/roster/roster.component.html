@@ -1,11 +1,3 @@
-<div>
-  <span>limited to: {{ currLimit$ | async }}</span>
-</div>
-<div>
-  <span>including ranks up to: {{ currRank$ | async }}</span>
-</div>
-<br />
-<hr />
 <table>
   <thead>
     <th>Name</th>
@@ -16,16 +8,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let player of roster$ | async">
-      <td>{{ player.name }}</td>
-      <td>{{ player.rank }}</td>
-      <td>{{ player.class }}</td>
+      <td>
+        <a routerLink="/player/{{ player.name }}">{{ player.name }}</a>
+      </td>
+      <td>{{ player.rank | memberRank }}</td>
+      <td>{{ player.class | playerClass }}</td>
       <td>{{ player.spec.name }}</td>
       <td>{{ player.spec.role }}</td>
     </tr>
   </tbody>
 </table>
-<input type="number" #limit />
-<button (click)="changeLimit(limit.value)">setLimit</button>
-<br />
-<input type="number" #rank />
-<button (click)="changeRank(rank.value)">setRank</button>
