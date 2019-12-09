@@ -1,14 +1,21 @@
-<nav>
-  <ul>
-    <li>
-      <a routerLink="/roster">Roster</a>
-    </li>
-    <li>
-      <a routerLink="/eternal-palace">Eternal Palace</a>
-    </li>
-  </ul>
-</nav>
-
-<h1>Elicit raid tools</h1>
-
-<router-outlet></router-outlet>
+<div class="main-container">
+  <header class="header-6">
+    <div class="branding">
+      <div class="nav-link">
+        <clr-icon shape="accessibility-1"></clr-icon>
+        <span class="title">Elicit Raid Tools</span>
+      </div>
+    </div>
+    <div class="header-nav">
+      <a routerLink="/roster" class="nav-link nav-text">Roster</a>
+      <a routerLink="/eternal-palace" class="nav-link nav-text"
+        >Eternal Palace</a
+      >
+    </div>
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

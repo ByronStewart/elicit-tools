@@ -14,8 +14,10 @@ import { ItemClassPipe } from "./pipes/item-class.pipe";
 import { InventoryTypePipe } from "./pipes/inventory-type.pipe";
 import { ItemSubClassPipe } from "./pipes/item-sub-class.pipe";
 import { PlayerClassPipe } from "./pipes/player-class.pipe";
-import { PlayerComponent } from './views/player/player.component';
-import { MemberRankPipe } from './pipes/member-rank.pipe';
+import { PlayerComponent } from "./views/player/player.component";
+import { MemberRankPipe } from "./pipes/member-rank.pipe";
+import { ClarityModule } from '@clr/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { MemberRankPipe } from './pipes/member-rank.pipe';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ClarityModule,
+    BrowserAnimationsModule
   ],
   providers: [ItemService, RosterService],
   bootstrap: [AppComponent]
