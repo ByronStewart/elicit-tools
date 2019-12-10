@@ -22,9 +22,9 @@
       <td>
         {{ item.inventoryType | inventoryType }}
       </td>
-      <td>
+      <td class="left">
         <a
-          class="label clickable"
+          class="label clickable label-info"
           routerLink="/player/{{ sim.player_name }}"
           *ngFor="let sim of item.sims"
         >

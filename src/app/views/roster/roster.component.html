@@ -7,6 +7,7 @@
       <th>Class</th>
       <th>Spec</th>
       <th>Role</th>
+      <th>Sim Available</th>
     </thead>
     <tbody>
       <tr *ngFor="let player of roster$ | async">
@@ -17,6 +18,18 @@
         <td>{{ player.class | playerClass }}</td>
         <td>{{ player.spec.name }}</td>
         <td>{{ player.spec.role }}</td>
+        <td *ngIf="player.simReportsUrls; else noSimReports">
+          <span class="label label-success">
+            Sim
+          </span>
+        </td>
+        <ng-template #noSimReports>
+          <td>
+            <span class="label label-danger">
+              No sim
+            </span>
+          </td>
+        </ng-template>
       </tr>
     </tbody>
   </table>
