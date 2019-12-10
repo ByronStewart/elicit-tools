@@ -1,0 +1,14 @@
+<div>
+  <label for="">Email: </label>
+  <input [(ngModel)]="email" />
+  <br />
+  <label for="">Password:</label>
+  <input [(ngModel)]="password" />
+  <button (click)="login()">Login</button>
+  <button (click)="logout()">Logout</button>
+</div>
+<div>
+  <pre>
+    {{ authServ.user$ | async | json }}
+  </pre>
+</div>

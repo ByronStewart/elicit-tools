@@ -5,6 +5,8 @@ import { EternalPalaceComponent } from "./views/eternal-palace/eternal-palace.co
 import { BossComponent } from "./views/boss/boss.component";
 import { PlayerComponent } from "./views/player/player.component";
 import { HomeComponent } from "./views/home/home.component";
+import { AdminComponent } from "./views/admin/admin.component";
+import { AuthGuard } from "./auth/auth.guard";
 
 const routes: Routes = [
   {
@@ -22,6 +24,11 @@ const routes: Routes = [
   {
     path: "player/:name",
     component: PlayerComponent
+  },
+  {
+    path: "admin",
+    component: AdminComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "",
