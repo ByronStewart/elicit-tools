@@ -1,0 +1,43 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="close"
+          type="button"
+          aria-label="Close"
+          (click)="close()"
+        >
+          <clr-icon aria-hidden="true" shape="close"></clr-icon>
+        </button>
+        <h3 class="modal-title">Admin Login</h3>
+      </div>
+      <form clrForm (ngSubmit)="submit($event)">
+        <div class="modal-body" style="padding: 0.1rem;">
+          <clr-input-container>
+            <label>Email:</label>
+            <input clrInput type="text" [(ngModel)]="email" name="email" />
+          </clr-input-container>
+          <clr-input-container>
+            <label>Password:</label>
+            <input
+              clrInput
+              type="password"
+              [(ngModel)]="password"
+              name="password"
+            />
+          </clr-input-container>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" type="button" (click)="close()">
+            Cancel
+          </button>
+          <button class="btn btn-primary" type="submit">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-backdrop" aria-hidden="true" (click)="close()"></div>
+</div>

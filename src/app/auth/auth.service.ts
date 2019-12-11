@@ -9,23 +9,26 @@ import { Router } from "@angular/router";
 })
 export class AuthService {
   user$: Observable<firebase.User>;
+  isLoggedIn: boolean = false;
   constructor(private afAuth: AngularFireAuth, private router: Router) {
     this.user$ = this.afAuth.authState;
+    this.user$
+      .pipe(map(user => !!user))
+      .subscribe(isLoggedIn => (this.isLoggedIn = isLoggedIn));
   }
 
   redirectUrl: string;
 
-  login(email: string, password: string): Observable<boolean> {
-    const user = this.afAuth.auth.signInWithEmailAndPassword(email, password);
-    return from(user).pipe(
-      tap(user => console.log(user)),
-      map(user => !!user),
-      take(1)
+  async login(email: string, password: string) {
+    const user = await this.afAuth.auth.signInWithEmailAndPassword(
+      email,
+      password
     );
+    return !!user;
   }
 
   async logout() {
     await this.afAuth.auth.signOut();
-    return this.router.navigate(["/"]);
+    this.router.navigate(["/"]);
   }
 }

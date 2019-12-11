@@ -19,11 +19,30 @@
         routerLinkActive="active"
         >Eternal Palace</a
       >
-      <a routerLink="/admin" class="nav-link nav-text" routerLinkActive="active"
+      <a
+        (click)="goToAdmin()"
+        class="nav-link nav-text"
+        routerLinkActive="active"
         >Admin</a
       >
     </div>
+    <div class="header-actions">
+      <a *ngIf="isLoggedIn" (click)="auth.logout()" class="nav-link nav-text">
+        Log Out
+      </a>
+      <a
+        *ngIf="!isLoggedIn"
+        class="nav-link nav-text"
+        (click)="toggleLoginModal()"
+      >
+        Log In
+      </a>
+    </div>
   </header>
+  <app-login-modal
+    *ngIf="loginModalOpen"
+    (onClose)="toggleLoginModal()"
+  ></app-login-modal>
   <div class="content-container">
     <div class="content-area">
       <router-outlet></router-outlet>

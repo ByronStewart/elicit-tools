@@ -20,6 +20,7 @@ import { ClarityModule } from "@clr/angular";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./views/home/home.component";
 import { AdminComponent } from "./views/admin/admin.component";
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AdminComponent } from "./views/admin/admin.component";
     PlayerComponent,
     MemberRankPipe,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
