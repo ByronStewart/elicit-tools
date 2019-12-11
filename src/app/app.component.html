@@ -20,6 +20,7 @@
         >Eternal Palace</a
       >
       <a
+        *ngIf="isLoggedIn"
         (click)="goToAdmin()"
         class="nav-link nav-text"
         routerLinkActive="active"
