@@ -15,7 +15,6 @@ export class PlayerSimsService {
         ref.where("isEquipped", "==", true)
       )
       .valueChanges()
-      .pipe(tap(x => console.log(x)))
       .subscribe(x => (this.equippedSims = x));
   }
 

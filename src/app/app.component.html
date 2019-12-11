@@ -23,20 +23,35 @@
         (click)="goToAdmin()"
         class="nav-link nav-text"
         routerLinkActive="active"
+        style="cursor: pointer;"
         >Admin</a
       >
     </div>
     <div class="header-actions">
-      <a *ngIf="isLoggedIn" (click)="auth.logout()" class="nav-link nav-text">
+      <button
+        *ngIf="isLoggedIn"
+        (click)="auth.logout()"
+        class="nav-link nav-btn btn-outline"
+        style="
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+  "
+      >
         Log Out
-      </a>
-      <a
+      </button>
+      <button
         *ngIf="!isLoggedIn"
-        class="nav-link nav-text"
+        class="nav-link nav-btn btn-outline"
         (click)="toggleLoginModal()"
+        style="
+          background-color: inherit;
+          border: none;
+          cursor: pointer;
+      "
       >
         Log In
-      </a>
+      </button>
     </div>
   </header>
   <app-login-modal
