@@ -1,4 +1,4 @@
-# Elict Tools
+# Elicit Raid Tools
 
 This is an in house raid management tool for the Elicit guild on Frostmourne.
 
