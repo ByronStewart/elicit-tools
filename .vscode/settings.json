@@ -1,3 +1,4 @@
 {
-  "html-css-class-completion.includeGlobPattern": "/node_modules/@clr/**/*.{css,html}"
+  "html-css-class-completion.includeGlobPattern": "/node_modules/@clr/**/*.{css,html}",
+  "git.ignoreLimitWarning": true
 }
